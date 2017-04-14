@@ -16,6 +16,8 @@ namespace ContentBlockService.Data
         DbSet<DigitalAsset> DigitalAssets { get; set; }        
         DbSet<Account> Accounts { get; set; }
         DbSet<Profile> Profiles { get; set; }
+        DbSet<RESTService> RESTServices { get; set; }
+        DbSet<Resource> Resources { get; set; }
         DbSet<ContentBlock> ContentBlocks { get; set; }
         DbSet<QuintupleContentBlock> QuintupleContentBlocks { get; set; }
 
@@ -38,9 +40,10 @@ namespace ContentBlockService.Data
         public DbSet<DigitalAsset> DigitalAssets { get; set; }        
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<RESTService> RESTServices { get; set; }
         public DbSet<ContentBlock> ContentBlocks { get; set; }
         public DbSet<QuintupleContentBlock> QuintupleContentBlocks { get; set; }
-
+        public DbSet<Resource> Resources { get; set; }
         public override int SaveChanges()
         {
             UpdateLoggableEntries();

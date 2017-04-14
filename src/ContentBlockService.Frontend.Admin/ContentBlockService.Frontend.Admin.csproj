@@ -6,7 +6,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion></ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F6286226-21E2-4BEB-B76D-F9E2D650E02A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -21,7 +22,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -337,6 +339,54 @@
     <Content Include="src\app\quintuple-content-blocks\quintuple-content-block-master-detail.component.scss">
       <DependentUpon>quintuple-content-block-master-detail.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\resources\resource-edit-embed.component.html">
+      <DependentUpon>resource-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\resources\resource-edit-embed.component.scss">
+      <DependentUpon>resource-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\resources\resource-item-embed.component.html">
+      <DependentUpon>resource-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\resources\resource-item-embed.component.scss">
+      <DependentUpon>resource-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\resources\resource-list-embed.component.html">
+      <DependentUpon>resource-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\resources\resource-list-embed.component.scss">
+      <DependentUpon>resource-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\resources\resource-master-detail.component.html">
+      <DependentUpon>resource-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\resources\resource-master-detail.component.scss">
+      <DependentUpon>resource-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-edit-embed.component.html">
+      <DependentUpon>rest-service-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-edit-embed.component.scss">
+      <DependentUpon>rest-service-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-item-embed.component.html">
+      <DependentUpon>rest-service-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-item-embed.component.scss">
+      <DependentUpon>rest-service-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-list-embed.component.html">
+      <DependentUpon>rest-service-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-list-embed.component.scss">
+      <DependentUpon>rest-service-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-master-detail.component.html">
+      <DependentUpon>rest-service-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\rest-services\rest-service-master-detail.component.scss">
+      <DependentUpon>rest-service-master-detail.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\shared\button.component.html">
       <DependentUpon>button.component.ts</DependentUpon>
     </Content>
@@ -459,7 +509,8 @@
           <IISUrl>http://localhost:64411/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -609,9 +660,31 @@
     <TypeScriptCompile Include="src\app\content-blocks\content-block.service.ts" />
     <TypeScriptCompile Include="src\app\content-blocks\index.ts" />
     <TypeScriptCompile Include="src\app\content-blocks\content-block.model.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\rest-service-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\rest-service-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\rest-service-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\rest-service-master-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\rest-service.actions.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\rest-service.service.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\index.ts" />
+    <TypeScriptCompile Include="src\app\rest-services\rest-service.model.ts" />
+    <TypeScriptCompile Include="src\app\resources\resource-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\resources\resource-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\resources\resource-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\resources\resource-master-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\resources\resource.actions.ts" />
+    <TypeScriptCompile Include="src\app\resources\resource.service.ts" />
+    <TypeScriptCompile Include="src\app\resources\index.ts" />
+    <TypeScriptCompile Include="src\app\resources\resource.model.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContentBlockService\ContentBlockService.csproj">
+      <Project>{a8711bc3-f343-4e44-b045-349942559795}</Project>
+      <Name>ContentBlockService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

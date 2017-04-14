@@ -16,8 +16,10 @@ namespace ContentBlockService.Data.Model
 		[Index("NameIndex", IsUnique = false)]
         [Column(TypeName = "VARCHAR")]        
 		public string Name { get; set; }
+
+        public ICollection<ContentBlock> ContentBlocks { get; set; } = new HashSet<ContentBlock>();
         
-		public DateTime CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
         
 		public DateTime LastModifiedOn { get; set; }
         
