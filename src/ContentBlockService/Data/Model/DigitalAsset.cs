@@ -1,6 +1,9 @@
 using ContentBlockService.Data.Helpers;
 using System;
 
+using static ContentBlockService.Constants;
+
+
 namespace ContentBlockService.Data.Model
 {
     [SoftDelete("IsDeleted")]

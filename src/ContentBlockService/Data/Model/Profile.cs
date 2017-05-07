@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using ContentBlockService.Data.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using static ContentBlockService.Constants;
+using System.ComponentModel.DataAnnotations;
+
 namespace ContentBlockService.Data.Model
 {
     [SoftDelete("IsDeleted")]
@@ -13,9 +16,10 @@ namespace ContentBlockService.Data.Model
 		[ForeignKey("Tenant")]
         public int? TenantId { get; set; }
         
-		[Index("NameIndex", IsUnique = false)]
-        [Column(TypeName = "VARCHAR")]        
-		public string Name { get; set; }
+		[Index("ProfileNameIndex", IsUnique = false)]
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(MaxStringLength)]
+        public string Name { get; set; }
 
         public bool IsPrimary { get; set; }
         

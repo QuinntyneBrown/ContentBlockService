@@ -14,7 +14,12 @@ namespace ContentBlockService.Features.RESTServices.Clients
             _client = client;
         }
 
-        public async Task<ContentBlockApiModel> Get(string resource, string id)
+        public async Task<ContentBlockApiModel> GetById(string resource, string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ContentBlockApiModel> Get(string resource, int? skip, int? limit)
         {
             throw new NotImplementedException();
         }

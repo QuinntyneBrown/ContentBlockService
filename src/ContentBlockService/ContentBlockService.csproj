@@ -223,9 +223,15 @@
     <Compile Include="Data\Helpers\SoftDeleteAttribute.cs" />
     <Compile Include="Data\Helpers\SoftDeleteInterceptor.cs" />
     <Compile Include="Data\Helpers\SoftDeleteQueryVisitor.cs" />
-    <Compile Include="Data\Model\ContentBlockType.cs" />
     <Compile Include="Data\Model\ILoggable.cs" />
     <Compile Include="Data\Migrations\Configuration.cs" />
+    <Compile Include="Features\ContentBlocks\AddOrUpdateContentBlockCommand.cs" />
+    <Compile Include="Features\ContentBlocks\ContentBlockApiModel.cs" />
+    <Compile Include="Features\ContentBlocks\ContentBlockController.cs" />
+    <Compile Include="Features\ContentBlocks\GetContentBlockByIdQuery.cs" />
+    <Compile Include="Features\ContentBlocks\GetContentBlockByNameQuery.cs" />
+    <Compile Include="Features\ContentBlocks\GetContentBlocksQuery.cs" />
+    <Compile Include="Features\ContentBlocks\RemoveContentBlockCommand.cs" />
     <Compile Include="Features\Core\Cache.cs" />
     <Compile Include="Features\Core\CacheProvider.cs" />
     <Compile Include="Features\Core\DateExtensions.cs" />
@@ -310,12 +316,6 @@
     <Compile Include="Data\Model\ContentBlock.cs" />
     <Compile Include="Data\Model\DoubleContentBlock.cs" />
     <Compile Include="Data\Model\QuintupleContentBlock.cs" />
-    <Compile Include="Features\ContentBlocks\AddOrUpdateContentBlockCommand.cs" />
-    <Compile Include="Features\ContentBlocks\GetContentBlocksQuery.cs" />
-    <Compile Include="Features\ContentBlocks\GetContentBlockByIdQuery.cs" />
-    <Compile Include="Features\ContentBlocks\RemoveContentBlockCommand.cs" />
-    <Compile Include="Features\ContentBlocks\ContentBlockApiModel.cs" />
-    <Compile Include="Features\ContentBlocks\ContentBlockController.cs" />
     <Compile Include="Features\QuintupleContentBlocks\AddOrUpdateQuintupleContentBlockCommand.cs" />
     <Compile Include="Features\QuintupleContentBlocks\GetQuintupleContentBlocksQuery.cs" />
     <Compile Include="Features\QuintupleContentBlocks\GetQuintupleContentBlockByIdQuery.cs" />
@@ -337,6 +337,7 @@
     <Compile Include="Features\RESTServices\RemoveRESTServiceCommand.cs" />
     <Compile Include="Features\RESTServices\RESTServiceApiModel.cs" />
     <Compile Include="Features\RESTServices\RESTServiceController.cs" />
+    <Compile Include="Data\Model\ContentBlockList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

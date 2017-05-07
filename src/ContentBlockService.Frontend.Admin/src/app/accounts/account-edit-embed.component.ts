@@ -1,6 +1,6 @@
 import { Account } from "./account.model";
 import { EditorComponent } from "../shared";
-import {  AccountDelete, AccountEdit, AccountAdd } from "./account.actions";
+import { AccountDelete, AccountEdit, AccountAdd } from "./account.actions";
 
 const template = require("./account-edit-embed.component.html");
 const styles = require("./account-edit-embed.component.scss");

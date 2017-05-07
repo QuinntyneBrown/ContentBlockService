@@ -10,6 +10,13 @@ using System.Net.Http.Headers;
 
 using static ContentBlockService.Features.DigitalAssets.GetDigitalAssetByUniqueIdQuery;
 using static ContentBlockService.Features.DigitalAssets.AzureBlobStorageDigitalAssetCommand;
+using ContentBlockService.Features.Core;
+using System.IO;
+using Microsoft.WindowsAzure.Storage.Blob;
+using ContentBlockService.Data;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using System;
 
 namespace ContentBlockService.Features.DigitalAssets
 {
@@ -17,8 +24,12 @@ namespace ContentBlockService.Features.DigitalAssets
     [RoutePrefix("api/digitalasset")]
     public class DigitalAssetController : ApiController
     {        
-        public DigitalAssetController(IMediator mediator, IUserManager userManager)
+        public DigitalAssetController(IMediator mediator, IUserManager userManager,ContentBlockServiceContext context, ICache cache, Lazy<IAzureBlobStorageConfiguration> lazyConfiguration)
         {
+            _context = context;
+            _cache = cache;
+            _configuration = lazyConfiguration.Value;
+            _storageAccount = new CloudStorageAccount(new StorageCredentials(_configuration.AccountName, _configuration.KeyValue), true);
             _mediator = mediator;
             _userManager = userManager;
         }
@@ -69,16 +80,56 @@ namespace ContentBlockService.Features.DigitalAssets
 
         [Route("upload")]
         [HttpPost]
-        public async Task<IHttpActionResult> Upload(HttpRequestMessage request)
+        public async Task<IHttpActionResult> Upload(HttpRequestMessage httpRequest)
         {
             if (!Request.Content.IsMimeMultipartContent("form-data"))
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
-            var user = await _userManager.GetUserAsync(User);            
-            var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());            
-            return Ok(await _mediator.Send(new AzureBlobStorageDigitalAssetRequest() { Provider = provider, Folder = $"{user.Tenant.UniqueId}" }));
+
+            var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());
+
+            var request = new AzureBlobStorageDigitalAssetRequest() { Provider = provider, TenantUniqueId = Request.GetTenantUniqueId() };
+
+            _blobClient = _storageAccount.CreateCloudBlobClient();
+
+            var container = _blobClient.GetContainerReference($"{request.TenantUniqueId}");
+
+            await container.CreateIfNotExistsAsync();
+
+            BlobContainerPermissions permissions = container.GetPermissions();
+
+            permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
+
+            container.SetPermissions(permissions);
+
+            var response = new AzureBlobStorageDigitalAssetResponse();
+
+            foreach (var file in request.Provider.Files)
+            {
+                var filename = new FileInfo(file.Headers.ContentDisposition.FileName.Trim(new char[] { '"' })
+                    .Replace("&", "and")).Name;
+
+                var stream = await file.ReadAsStreamAsync();
+
+                var blockBlob = container.GetBlockBlobReference(filename);
+
+                blockBlob.Properties.ContentType = System.Convert.ToString(file.Headers.ContentType);
+
+                await blockBlob.UploadFromStreamAsync(stream);
+
+                response.DigitalAssets.Add(new DigitalAssetApiModel()
+                {
+                    Url = $"{blockBlob.StorageUri.PrimaryUri}"
+                });
+            }
+            return Ok(response);
         }
 
         protected readonly IMediator _mediator;
         protected readonly IUserManager _userManager;
+        private readonly ContentBlockServiceContext _context;
+        private readonly ICache _cache;
+        private readonly CloudStorageAccount _storageAccount;
+        private CloudBlobClient _blobClient;
+        private readonly IAzureBlobStorageConfiguration _configuration;
     }
 }

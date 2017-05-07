@@ -1,12 +1,10 @@
-using MediatR;
 using ContentBlockService.Data;
 using ContentBlockService.Data.Model;
 using ContentBlockService.Features.Core;
+using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
 using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace ContentBlockService.Features.ContentBlocks
 {
@@ -40,7 +38,19 @@ namespace ContentBlockService.Features.ContentBlocks
                 }
 
                 entity.Name = request.ContentBlock.Name;
-                
+
+                entity.Slug = request.ContentBlock.Name.GenerateSlug();
+
+                entity.Url = request.ContentBlock.Url;
+
+                entity.ImageUrl = request.ContentBlock.ImageUrl;
+
+                entity.HTMLContent = request.ContentBlock.HTMLContent;
+
+                entity.Heading1 = request.ContentBlock.Heading1;
+
+                entity.Heading2 = request.ContentBlock.Heading2;
+
                 await _context.SaveChangesAsync();
 
                 return new AddOrUpdateContentBlockResponse();
@@ -49,7 +59,5 @@ namespace ContentBlockService.Features.ContentBlocks
             private readonly ContentBlockServiceContext _context;
             private readonly ICache _cache;
         }
-
     }
-
 }

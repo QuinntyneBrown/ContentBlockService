@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using ContentBlockService.Data.Helpers;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using static ContentBlockService.Constants;
 
 namespace ContentBlockService.Data.Model
 {
@@ -13,9 +15,10 @@ namespace ContentBlockService.Data.Model
 		[ForeignKey("Tenant")]
         public int? TenantId { get; set; }
         
-		[Index("NameIndex", IsUnique = false)]
-        [Column(TypeName = "VARCHAR")]        
-		public string Name { get; set; }
+		[Index("AccountNameIndex", IsUnique = false)]
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(MaxStringLength)]
+        public string Name { get; set; }
 
         public string Firstname { get; set; }
 

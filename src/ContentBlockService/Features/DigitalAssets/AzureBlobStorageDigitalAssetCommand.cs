@@ -43,6 +43,12 @@ namespace ContentBlockService.Features.DigitalAssets
 
                 await container.CreateIfNotExistsAsync();
 
+                BlobContainerPermissions permissions = container.GetPermissions();
+
+                permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
+
+                container.SetPermissions(permissions);
+
                 var response = new AzureBlobStorageDigitalAssetResponse();
 
                 foreach (var file in request.Provider.Files)

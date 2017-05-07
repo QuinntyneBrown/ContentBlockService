@@ -10,6 +10,8 @@ namespace ContentBlockService.Features.ContentBlocks
 
         public string Name { get; set; }
 
+        public string Slug { get; set; }
+
         public string Title { get; set; }
 
         public string ImageUrl { get; set; }
@@ -19,6 +21,10 @@ namespace ContentBlockService.Features.ContentBlocks
         public string IconUrl { get; set; }
 
         public string HTMLContent { get; set; }
+
+        public string Heading1 { get; set; }
+
+        public string Heading2 { get; set; }
 
         public static TModel FromContentBlock<TModel>(ContentBlock contentBlock) where
             TModel : ContentBlockApiModel, new()
@@ -31,6 +37,8 @@ namespace ContentBlockService.Features.ContentBlocks
 
             model.Name = contentBlock.Name;
 
+            model.Slug = contentBlock.Slug;
+
             model.Title = contentBlock.Title;
 
             model.ImageUrl = contentBlock.ImageUrl;
@@ -41,11 +49,14 @@ namespace ContentBlockService.Features.ContentBlocks
 
             model.HTMLContent = contentBlock.HTMLContent;
 
+            model.Heading1 = contentBlock.Heading1;
+
+            model.Heading2 = contentBlock.Heading2;
+
             return model;
         }
 
         public static ContentBlockApiModel FromContentBlock(ContentBlock contentBlock)
             => FromContentBlock<ContentBlockApiModel>(contentBlock);
-
     }
 }

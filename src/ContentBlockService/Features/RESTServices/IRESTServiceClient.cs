@@ -5,6 +5,8 @@ namespace ContentBlockService.Features.RESTServices
 {
     public interface IRESTServiceClient
     {
-        Task<ContentBlockApiModel> Get(string resource, string id);
+        Task<ContentBlockApiModel> GetById(string resource, string id);
+
+        Task<ContentBlockApiModel> Get(string resource, int? skip, int? limit);
     }
 }

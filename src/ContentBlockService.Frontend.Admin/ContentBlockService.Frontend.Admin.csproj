@@ -197,7 +197,9 @@
     <Content Include=".gitignore" />
     <Content Include="azureBlobStorageConfiguration.config">
       <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="dist\app.js" />
     <Content Include="index.html" />
     <Content Include="lib\moment.min.js" />
     <Content Include="lib\native-shim.js" />
@@ -486,7 +488,9 @@
     <Content Include="src\styles\base\view-card.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Startup.cs" />
@@ -531,6 +535,14 @@
   </Target>
   -->
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\content-blocks\content-block-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\content-blocks\content-block-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\content-blocks\content-block-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\content-blocks\content-block-master-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\content-blocks\content-block.actions.ts" />
+    <TypeScriptCompile Include="src\app\content-blocks\content-block.model.ts" />
+    <TypeScriptCompile Include="src\app\content-blocks\content-block.service.ts" />
+    <TypeScriptCompile Include="src\app\content-blocks\index.ts" />
     <TypeScriptCompile Include="src\app\digital-assets\digital-asset-edit-embed.component.ts" />
     <TypeScriptCompile Include="src\app\digital-assets\digital-asset-item-embed.component.ts" />
     <TypeScriptCompile Include="src\app\digital-assets\digital-asset-list-embed.component.ts" />
@@ -652,14 +664,6 @@
     <TypeScriptCompile Include="src\app\quintuple-content-blocks\quintuple-content-block.service.ts" />
     <TypeScriptCompile Include="src\app\quintuple-content-blocks\index.ts" />
     <TypeScriptCompile Include="src\app\quintuple-content-blocks\quintuple-content-block.model.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\content-block-edit-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\content-block-list-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\content-block-item-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\content-block-master-detail.component.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\content-block.actions.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\content-block.service.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\index.ts" />
-    <TypeScriptCompile Include="src\app\content-blocks\content-block.model.ts" />
     <TypeScriptCompile Include="src\app\rest-services\rest-service-edit-embed.component.ts" />
     <TypeScriptCompile Include="src\app\rest-services\rest-service-list-embed.component.ts" />
     <TypeScriptCompile Include="src\app\rest-services\rest-service-item-embed.component.ts" />
@@ -677,14 +681,19 @@
     <TypeScriptCompile Include="src\app\resources\index.ts" />
     <TypeScriptCompile Include="src\app\resources\resource.model.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ContentBlockService\ContentBlockService.csproj">
       <Project>{a8711bc3-f343-4e44-b045-349942559795}</Project>
       <Name>ContentBlockService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dist\app.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\contentblock - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\contentblock - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

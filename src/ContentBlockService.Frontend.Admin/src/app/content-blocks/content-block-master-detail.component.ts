@@ -53,7 +53,7 @@ export class ContentBlockMasterDetailComponent extends HTMLElement {
         this.contentBlockEditElement.setAttribute("content-block", JSON.stringify(new ContentBlock()));
     }
 
-    public onContentBlockEdit(e) {
+    public onContentBlockEdit(e) {        
         this.contentBlockEditElement.setAttribute("content-block", JSON.stringify(e.detail.contentBlock));
     }
 

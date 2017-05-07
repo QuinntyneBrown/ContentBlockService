@@ -1,29 +1,27 @@
 using System;
 using System.Collections.Generic;
 using ContentBlockService.Data.Helpers;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using static ContentBlockService.Constants;
-using System.ComponentModel.DataAnnotations;
 
 namespace ContentBlockService.Data.Model
 {
     [SoftDelete("IsDeleted")]
-    public class DoubleContentBlock: ILoggable
+    public class ContentBlockList: ILoggable
     {
         public int Id { get; set; }
         
 		[ForeignKey("Tenant")]
         public int? TenantId { get; set; }
         
-		[Index("DoubleContentBlockNameIndex", IsUnique = false)]
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(MaxStringLength)]
-        public string Name { get; set; }
-
-        public ICollection<ContentBlock> ContentBlocks { get; set; } = new HashSet<ContentBlock>();
-
-        public DateTime CreatedOn { get; set; }
+		[Index("ContentBlockListNameIndex", IsUnique = false)]
+        [Column(TypeName = "VARCHAR")]     
+        [StringLength(MaxStringLength)]		   
+		public string Name { get; set; }
+        
+		public DateTime CreatedOn { get; set; }
         
 		public DateTime LastModifiedOn { get; set; }
         
