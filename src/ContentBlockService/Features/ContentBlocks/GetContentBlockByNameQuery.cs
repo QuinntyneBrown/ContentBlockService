@@ -29,15 +29,13 @@ namespace ContentBlockService.Features.ContentBlocks
             }
 
             public async Task<GetContentBlockByNameResponse> Handle(GetContentBlockByNameRequest request)
-            {
-                return new GetContentBlockByNameResponse()
+                => new GetContentBlockByNameResponse()
                 {
-                    ContentBlock = ContentBlockApiModel.FromContentBlock(await _context.ContentBlocks
+                    ContentBlock = ContentBlockApiModel.FromContentBlock(await _cache.FromCacheOrServiceAsync(() => _context.ContentBlocks
                     .Include(x => x.Tenant)
-                    .SingleAsync(x => x.Name == request.Name && x.Tenant.UniqueId == request.TenantUniqueId))
+                    .SingleAsync(x => x.Name == request.Name && x.Tenant.UniqueId == request.TenantUniqueId), $"[GetContentBlockByName] {request.Name}"))
                 };
-            }
-
+            
             private readonly ContentBlockServiceContext _context;
             private readonly ICache _cache;
         }
