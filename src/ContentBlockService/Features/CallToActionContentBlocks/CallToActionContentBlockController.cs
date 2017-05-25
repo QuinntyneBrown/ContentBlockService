@@ -9,6 +9,7 @@ using static ContentBlockService.Features.CallToActionContentBlocks.AddOrUpdateC
 using static ContentBlockService.Features.CallToActionContentBlocks.GetCallToActionContentBlocksQuery;
 using static ContentBlockService.Features.CallToActionContentBlocks.GetCallToActionContentBlockByIdQuery;
 using static ContentBlockService.Features.CallToActionContentBlocks.RemoveCallToActionContentBlockCommand;
+using static ContentBlockService.Features.CallToActionContentBlocks.GetCallToActionContentBlockBySlugQuery;
 
 namespace ContentBlockService.Features.CallToActionContentBlocks
 {
@@ -54,6 +55,15 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
         [HttpGet]
         [ResponseType(typeof(GetCallToActionContentBlockByIdResponse))]
         public async Task<IHttpActionResult> GetById([FromUri]GetCallToActionContentBlockByIdRequest request)
+        {
+            request.TenantUniqueId = Request.GetTenantUniqueId();
+            return Ok(await _mediator.Send(request));
+        }
+
+        [Route("getBySlug")]
+        [HttpGet]
+        [ResponseType(typeof(GetCallToActionContentBlockBySlugResponse))]
+        public async Task<IHttpActionResult> GetBySlug([FromUri]GetCallToActionContentBlockBySlugRequest request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));

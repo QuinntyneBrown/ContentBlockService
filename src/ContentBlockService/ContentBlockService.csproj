@@ -352,6 +352,7 @@
     <Compile Include="Features\CallToActionContentBlocks\RemoveCallToActionContentBlockCommand.cs" />
     <Compile Include="Features\CallToActionContentBlocks\CallToActionContentBlockApiModel.cs" />
     <Compile Include="Features\CallToActionContentBlocks\CallToActionContentBlockController.cs" />
+    <Compile Include="Features\CallToActionContentBlocks\GetCallToActionContentBlockBySlugQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\CallToActionContentBlocks\" />

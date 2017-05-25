@@ -40,7 +40,19 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
                 }
 
                 entity.Name = request.CallToActionContentBlock.Name;
-                
+
+                entity.Body = request.CallToActionContentBlock.Body;
+
+                entity.FinalNote = request.CallToActionContentBlock.FinalNote;
+
+                entity.Headline = request.CallToActionContentBlock.Headline;
+
+                entity.ButtonCaption = request.CallToActionContentBlock.ButtonCaption;
+
+                entity.CallToAction = request.CallToActionContentBlock.CallToAction;
+
+                entity.Slug = request.CallToActionContentBlock.Name.GenerateSlug();
+
                 await _context.SaveChangesAsync();
 
                 return new AddOrUpdateCallToActionContentBlockResponse();
