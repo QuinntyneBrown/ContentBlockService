@@ -345,8 +345,16 @@
     <Compile Include="Features\RESTServices\RESTServiceApiModel.cs" />
     <Compile Include="Features\RESTServices\RESTServiceController.cs" />
     <Compile Include="Data\Model\ContentBlockList.cs" />
+    <Compile Include="Data\Model\CallToActionContentBlock.cs" />
+    <Compile Include="Features\CallToActionContentBlocks\AddOrUpdateCallToActionContentBlockCommand.cs" />
+    <Compile Include="Features\CallToActionContentBlocks\GetCallToActionContentBlocksQuery.cs" />
+    <Compile Include="Features\CallToActionContentBlocks\GetCallToActionContentBlockByIdQuery.cs" />
+    <Compile Include="Features\CallToActionContentBlocks\RemoveCallToActionContentBlockCommand.cs" />
+    <Compile Include="Features\CallToActionContentBlocks\CallToActionContentBlockApiModel.cs" />
+    <Compile Include="Features\CallToActionContentBlocks\CallToActionContentBlockController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Features\CallToActionContentBlocks\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

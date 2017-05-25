@@ -20,6 +20,7 @@ namespace ContentBlockService.Data
         DbSet<Resource> Resources { get; set; }
         DbSet<ContentBlock> ContentBlocks { get; set; }
         DbSet<QuintupleContentBlock> QuintupleContentBlocks { get; set; }
+        DbSet<CallToActionContentBlock> CallToActionContentBlocks { get; set; }
 
         Task<int> SaveChangesAsync();
     }
@@ -44,6 +45,8 @@ namespace ContentBlockService.Data
         public DbSet<ContentBlock> ContentBlocks { get; set; }
         public DbSet<QuintupleContentBlock> QuintupleContentBlocks { get; set; }
         public DbSet<Resource> Resources { get; set; }
+        public DbSet<CallToActionContentBlock> CallToActionContentBlocks { get; set; }
+
         public override int SaveChanges()
         {
             UpdateLoggableEntries();
