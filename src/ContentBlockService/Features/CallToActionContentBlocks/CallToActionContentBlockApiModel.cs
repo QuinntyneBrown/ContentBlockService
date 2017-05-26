@@ -48,6 +48,5 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
         public static CallToActionContentBlockApiModel FromCallToActionContentBlock(CallToActionContentBlock callToActionContentBlock)
             => FromCallToActionContentBlock<CallToActionContentBlockApiModel>(callToActionContentBlock);
-
     }
 }

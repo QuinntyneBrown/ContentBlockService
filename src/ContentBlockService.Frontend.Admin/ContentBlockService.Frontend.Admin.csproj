@@ -315,6 +315,30 @@
     <Content Include="src\app\digital-assets\digital-asset-url-input.component.scss">
       <DependentUpon>digital-asset-url-input.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-edit-embed.component.html">
+      <DependentUpon>headline-content-block-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-edit-embed.component.scss">
+      <DependentUpon>headline-content-block-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-item-embed.component.html">
+      <DependentUpon>headline-content-block-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-item-embed.component.scss">
+      <DependentUpon>headline-content-block-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-master-detail.component.html">
+      <DependentUpon>headline-content-block-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-master-detail.component.scss">
+      <DependentUpon>headline-content-block-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-paginated-list-embed.component.html">
+      <DependentUpon>headline-content-block-paginated-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\headline-content-blocks\headline-content-block-paginated-list-embed.component.scss">
+      <DependentUpon>headline-content-block-paginated-list-embed.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\profiles\profile-edit-embed.component.html">
       <DependentUpon>profile-edit-embed.component.ts</DependentUpon>
     </Content>
@@ -709,6 +733,14 @@
     <TypeScriptCompile Include="src\app\call-to-action-content-blocks\call-to-action-content-block.service.ts" />
     <TypeScriptCompile Include="src\app\call-to-action-content-blocks\index.ts" />
     <TypeScriptCompile Include="src\app\call-to-action-content-blocks\call-to-action-content-block.model.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block-paginated-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block-master-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block.actions.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block.service.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\index.ts" />
+    <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block.model.ts" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

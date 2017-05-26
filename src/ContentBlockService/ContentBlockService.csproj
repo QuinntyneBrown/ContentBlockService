@@ -353,9 +353,16 @@
     <Compile Include="Features\CallToActionContentBlocks\CallToActionContentBlockApiModel.cs" />
     <Compile Include="Features\CallToActionContentBlocks\CallToActionContentBlockController.cs" />
     <Compile Include="Features\CallToActionContentBlocks\GetCallToActionContentBlockBySlugQuery.cs" />
+    <Compile Include="Data\Model\HeadlineContentBlock.cs" />
+    <Compile Include="Features\HeadlineContentBlocks\AddOrUpdateHeadlineContentBlockCommand.cs" />
+    <Compile Include="Features\HeadlineContentBlocks\GetHeadlineContentBlocksQuery.cs" />
+    <Compile Include="Features\HeadlineContentBlocks\GetHeadlineContentBlockByIdQuery.cs" />
+    <Compile Include="Features\HeadlineContentBlocks\RemoveHeadlineContentBlockCommand.cs" />
+    <Compile Include="Features\HeadlineContentBlocks\HeadlineContentBlockApiModel.cs" />
+    <Compile Include="Features\HeadlineContentBlocks\HeadlineContentBlockController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\CallToActionContentBlocks\" />
+    <Folder Include="Features\HeadlineContentBlocks\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

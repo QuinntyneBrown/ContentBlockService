@@ -1,0 +1,28 @@
+@import "../../styles/base/_all";
+
+ce-headline-content-block-master-detail {
+    display:block;
+	@extend .view-card;
+
+    ce-headline-content-block-edit-embed,
+    ce-headline-content-block-paginated-list-embed {
+        float:left;
+        display:inline-block;
+        position:relative;
+        width:calc(50% - 10px);
+    }
+
+    ce-headline-content-block-edit-embed {
+        margin-right:10px;
+    }
+
+    ce-headline-content-block-paginated-list-embed {
+        margin-left:10px;
+    }
+}
+
+ce-headline-content-block-master-detail::after {
+    clear:both;
+    display:block;
+    content:" ";
+}
