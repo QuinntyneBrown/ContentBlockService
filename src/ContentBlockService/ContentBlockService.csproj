@@ -360,6 +360,7 @@
     <Compile Include="Features\HeadlineContentBlocks\RemoveHeadlineContentBlockCommand.cs" />
     <Compile Include="Features\HeadlineContentBlocks\HeadlineContentBlockApiModel.cs" />
     <Compile Include="Features\HeadlineContentBlocks\HeadlineContentBlockController.cs" />
+    <Compile Include="Features\HeadlineContentBlocks\GetHeadlineContentBlockBySlugQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\HeadlineContentBlocks\" />

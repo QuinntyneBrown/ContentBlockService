@@ -9,6 +9,7 @@ using static ContentBlockService.Features.HeadlineContentBlocks.AddOrUpdateHeadl
 using static ContentBlockService.Features.HeadlineContentBlocks.GetHeadlineContentBlocksQuery;
 using static ContentBlockService.Features.HeadlineContentBlocks.GetHeadlineContentBlockByIdQuery;
 using static ContentBlockService.Features.HeadlineContentBlocks.RemoveHeadlineContentBlockCommand;
+using static ContentBlockService.Features.HeadlineContentBlocks.GetHeadlineContentBlockBySlugQuery;
 
 namespace ContentBlockService.Features.HeadlineContentBlocks
 {
@@ -54,6 +55,16 @@ namespace ContentBlockService.Features.HeadlineContentBlocks
         [HttpGet]
         [ResponseType(typeof(GetHeadlineContentBlockByIdResponse))]
         public async Task<IHttpActionResult> GetById([FromUri]GetHeadlineContentBlockByIdRequest request)
+        {
+            request.TenantUniqueId = Request.GetTenantUniqueId();
+            return Ok(await _mediator.Send(request));
+        }
+
+
+        [Route("getBySlug")]
+        [HttpGet]
+        [ResponseType(typeof(GetHeadlineContentBlockBySlugResponse))]
+        public async Task<IHttpActionResult> GetBySlug([FromUri]GetHeadlineContentBlockBySlugRequest request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));

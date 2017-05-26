@@ -40,6 +40,12 @@ namespace ContentBlockService.Features.HeadlineContentBlocks
                 }
 
                 entity.Name = request.HeadlineContentBlock.Name;
+
+                entity.Slug = request.HeadlineContentBlock.Name.GenerateSlug();
+
+                entity.Headline1 = request.HeadlineContentBlock.Headline1;
+
+                entity.Headline2 = request.HeadlineContentBlock.Headline2;
                 
                 await _context.SaveChangesAsync();
 
