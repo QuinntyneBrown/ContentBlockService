@@ -10,6 +10,7 @@ using static ContentBlockService.Features.ContentBlocks.GetContentBlocksQuery;
 using static ContentBlockService.Features.ContentBlocks.GetContentBlockByIdQuery;
 using static ContentBlockService.Features.ContentBlocks.GetContentBlockByNameQuery;
 using static ContentBlockService.Features.ContentBlocks.RemoveContentBlockCommand;
+using static ContentBlockService.Features.ContentBlocks.GetContentBlockBySlugQuery;
 
 namespace ContentBlockService.Features.ContentBlocks
 {
@@ -55,6 +56,16 @@ namespace ContentBlockService.Features.ContentBlocks
         [HttpGet]
         [ResponseType(typeof(GetContentBlockByIdResponse))]
         public async Task<IHttpActionResult> GetById([FromUri]GetContentBlockByIdRequest request)
+        {
+            request.TenantUniqueId = Request.GetTenantUniqueId();
+            return Ok(await _mediator.Send(request));
+        }
+
+        [AllowAnonymous]
+        [Route("getBySlug")]
+        [HttpGet]
+        [ResponseType(typeof(GetContentBlockByIdResponse))]
+        public async Task<IHttpActionResult> GetBySlug([FromUri]GetContentBlockBySlugRequest request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));

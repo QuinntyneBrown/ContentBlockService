@@ -361,6 +361,7 @@
     <Compile Include="Features\HeadlineContentBlocks\HeadlineContentBlockApiModel.cs" />
     <Compile Include="Features\HeadlineContentBlocks\HeadlineContentBlockController.cs" />
     <Compile Include="Features\HeadlineContentBlocks\GetHeadlineContentBlockBySlugQuery.cs" />
+    <Compile Include="Features\ContentBlocks\GetContentBlockBySlugQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\HeadlineContentBlocks\" />

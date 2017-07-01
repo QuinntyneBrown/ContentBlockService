@@ -12,6 +12,11 @@ export class AppRouterOutletComponent extends RouterOutlet {
             { path: "/tab/:tabIndex", name: "content-block-master-detail", authRequired: true },
             { path: "/content-block/edit/:contentBlockId/tab/:tabIndex", name: "content-block-master-detail", authRequired: true },
             { path: "/content-block/edit/:contentBlockId", name: "content-block-master-detail", authRequired: true },
+
+            { path: "/headline-content-blocks", name: "headline-content-block-master-detail", authRequired: true },
+
+            { path: "/call-to-action-content-blocks", name: "call-to-action-content-block-master-detail", authRequired: true },
+
             { path: "/register", name: "account-register" },
             { path: "/login", name: "login" },
             { path: "/error", name: "error" },

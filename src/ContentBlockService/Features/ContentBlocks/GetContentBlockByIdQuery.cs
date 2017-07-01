@@ -1,10 +1,8 @@
-using MediatR;
 using ContentBlockService.Data;
 using ContentBlockService.Features.Core;
+using MediatR;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Data.Entity;
 
 namespace ContentBlockService.Features.ContentBlocks
