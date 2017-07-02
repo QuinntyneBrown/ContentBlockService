@@ -80,7 +80,7 @@ export class CallToActionContentBlockEditEmbedComponent extends HTMLElement {
                 if (this.parentNode) {
                     this.callToActionContentBlockId = this.callToActionContentBlock.id;
                     this._nameInputElement.value = this.callToActionContentBlock.name != undefined ? this.callToActionContentBlock.name : "";
-                    this._titleElement.textContent = this.callToActionContentBlockId ? "Edit CallToActionContentBlock" : "Create CallToActionContentBlock";
+                    this._titleElement.textContent = this.callToActionContentBlockId ? "Edit Call To Action Content Block" : "Create Call To Action Content Block";
                 }
                 break;
         }           

@@ -1,6 +1,7 @@
 ﻿export const environment = {
     production: true,
     applicationContextName: "ContentBlockServiceApp",
-    baseUrl: "http://ContentBlockService.azurewebsites.net",
+    //baseUrl: "http://contentblockservice.azurewebsites.net",
+    baseUrl:"",
     useUrlRouting: true
 };
