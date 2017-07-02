@@ -53,6 +53,7 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
         [Route("getById")]
         [HttpGet]
+        [AllowAnonymous]
         [ResponseType(typeof(GetCallToActionContentBlockByIdResponse))]
         public async Task<IHttpActionResult> GetById([FromUri]GetCallToActionContentBlockByIdRequest request)
         {
