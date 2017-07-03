@@ -35,6 +35,8 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
             model.Headline = callToActionContentBlock.Headline;
 
+            model.CallToAction = callToActionContentBlock.CallToAction;
+
             model.Body = callToActionContentBlock.Body;
 
             model.FinalNote = callToActionContentBlock.FinalNote;

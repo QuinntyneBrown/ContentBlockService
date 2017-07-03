@@ -27,14 +27,19 @@ export class CallToActionContentBlockEditEmbedComponent extends HTMLElement {
     }
     
     private async _bind() {
+        
+
         this._titleElement.textContent = this.callToActionContentBlock ? "Edit Call To Action Content Block": "Create Call To Action Content Block";
 
-        if (this.callToActionContentBlock) {                
+        this._bodyEditor = new EditorComponent(this._bodyElement);
+
+        if (this.callToActionContentBlock) {                            
             this._nameInputElement.value = this.callToActionContentBlock.name;
             this._callToActionInputElement.value = this.callToActionContentBlock.callToAction;
             this._headlineInputElement.value = this.callToActionContentBlock.headline;
             this._finalNoteInputElement.value = this.callToActionContentBlock.finalNote;
             this._buttonCaptionInputElement.value = this.callToActionContentBlock.buttonCaption;  
+            this._bodyEditor.setHTML(this.callToActionContentBlock.body);
         } else {
             this._deleteButtonElement.style.display = "none";
         }     
@@ -52,14 +57,15 @@ export class CallToActionContentBlockEditEmbedComponent extends HTMLElement {
         this._createButtonElement.removeEventListener("click", this.onCreate);
     }
 
-    public onSave() {
+    public onSave() {        
         const callToActionContentBlock = {
             id: this.callToActionContentBlock != null ? this.callToActionContentBlock.id : null,
             name: this._nameInputElement.value,
             headline: this._headlineInputElement.value,
             callToAction: this._callToActionInputElement.value,
             finalNote: this._finalNoteInputElement.value,
-            buttonCaption: this._buttonCaptionInputElement.value
+            buttonCaption: this._buttonCaptionInputElement.value,
+            body: this._bodyEditor.text
         } as CallToActionContentBlock;
         
         this.dispatchEvent(new CallToActionContentBlockAdd(callToActionContentBlock));            
@@ -85,14 +91,15 @@ export class CallToActionContentBlockEditEmbedComponent extends HTMLElement {
                 break;
             case "call-to-action-content-block":
                 this.callToActionContentBlock = JSON.parse(newValue);
-                if (this.parentNode) {
+                if (this.parentNode) {                    
                     this.callToActionContentBlockId = this.callToActionContentBlock.id;
                     this._nameInputElement.value = this.callToActionContentBlock.name != undefined ? this.callToActionContentBlock.name : "";
                     this._headlineInputElement.value = this.callToActionContentBlock.headline != undefined ? this.callToActionContentBlock.headline : "";
                     this._callToActionInputElement.value = this.callToActionContentBlock.callToAction != undefined ? this.callToActionContentBlock.callToAction : "";
                     this._finalNoteInputElement.value = this.callToActionContentBlock.finalNote != undefined ? this.callToActionContentBlock.finalNote : "";
-                    this._buttonCaptionInputElement.value = this.callToActionContentBlock.buttonCaption != undefined ? this.callToActionContentBlock.buttonCaption : "";
+                    this._buttonCaptionInputElement.value = this.callToActionContentBlock.buttonCaption != undefined ? this.callToActionContentBlock.buttonCaption : "";                    
                     this._titleElement.textContent = this.callToActionContentBlockId ? "Edit Call To Action Content Block" : "Create Call To Action Content Block";
+                    this._bodyEditor.setHTML(this.callToActionContentBlock.body != undefined ? this.callToActionContentBlock.body : "");
                 }
                 break;
         }           
@@ -119,6 +126,10 @@ export class CallToActionContentBlockEditEmbedComponent extends HTMLElement {
     private get _finalNoteInputElement(): HTMLInputElement { return this.querySelector(".call-to-action-content-block-final-note") as HTMLInputElement; }
 
     private get _buttonCaptionInputElement(): HTMLInputElement { return this.querySelector(".call-to-action-content-block-button-caption") as HTMLInputElement; }
+
+    private get _bodyElement(): HTMLElement { return this.querySelector(".call-to-action-content-block-body") as HTMLElement; }
+
+    private _bodyEditor: EditorComponent;
 }
 
 customElements.define(`ce-call-to-action-content-block-edit-embed`,CallToActionContentBlockEditEmbedComponent);
