@@ -12,7 +12,9 @@ export class CallToActionContentBlock {
 
     public finalNote: string;
 
-    public static fromJSON(data: CallToActionContentBlock): CallToActionContentBlock {
+    public callToAction: string;
+
+    public static fromJSON(data: any): CallToActionContentBlock {
 
         let callToActionContentBlock = new CallToActionContentBlock();
 
@@ -25,6 +27,8 @@ export class CallToActionContentBlock {
         callToActionContentBlock.buttonCaption = data.buttonCaption;
 
         callToActionContentBlock.finalNote = data.finalNote;
+
+        callToActionContentBlock.callToAction = data.callToAction;
 
         return callToActionContentBlock;
     }
