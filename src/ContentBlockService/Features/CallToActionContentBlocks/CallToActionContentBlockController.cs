@@ -63,6 +63,7 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
         [Route("getBySlug")]
         [HttpGet]
+        [AllowAnonymous]
         [ResponseType(typeof(GetCallToActionContentBlockBySlugResponse))]
         public async Task<IHttpActionResult> GetBySlug([FromUri]GetCallToActionContentBlockBySlugRequest request)
         {

@@ -362,9 +362,16 @@
     <Compile Include="Features\HeadlineContentBlocks\HeadlineContentBlockController.cs" />
     <Compile Include="Features\HeadlineContentBlocks\GetHeadlineContentBlockBySlugQuery.cs" />
     <Compile Include="Features\ContentBlocks\GetContentBlockBySlugQuery.cs" />
+    <Compile Include="Data\Model\MegaHeaderContentBlock.cs" />
+    <Compile Include="Features\MegaHeaderContentBlocks\AddOrUpdateMegaHeaderContentBlockCommand.cs" />
+    <Compile Include="Features\MegaHeaderContentBlocks\GetMegaHeaderContentBlocksQuery.cs" />
+    <Compile Include="Features\MegaHeaderContentBlocks\GetMegaHeaderContentBlockByIdQuery.cs" />
+    <Compile Include="Features\MegaHeaderContentBlocks\RemoveMegaHeaderContentBlockCommand.cs" />
+    <Compile Include="Features\MegaHeaderContentBlocks\MegaHeaderContentBlockApiModel.cs" />
+    <Compile Include="Features\MegaHeaderContentBlocks\MegaHeaderContentBlockController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\HeadlineContentBlocks\" />
+    <Folder Include="Features\MegaHeaderContentBlocks\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

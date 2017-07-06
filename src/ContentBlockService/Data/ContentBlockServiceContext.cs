@@ -22,6 +22,7 @@ namespace ContentBlockService.Data
         DbSet<QuintupleContentBlock> QuintupleContentBlocks { get; set; }
         DbSet<CallToActionContentBlock> CallToActionContentBlocks { get; set; }
         DbSet<HeadlineContentBlock> HeadlineContentBlocks { get; set; }
+        DbSet<MegaHeaderContentBlock> MegaHeaderContentBlocks { get; set; }
         Task<int> SaveChangesAsync();
     }
 
@@ -47,6 +48,7 @@ namespace ContentBlockService.Data
         public DbSet<Resource> Resources { get; set; }
         public DbSet<CallToActionContentBlock> CallToActionContentBlocks { get; set; }
         public DbSet<HeadlineContentBlock> HeadlineContentBlocks { get; set; }
+        public DbSet<MegaHeaderContentBlock> MegaHeaderContentBlocks { get; set; }
         public override int SaveChanges()
         {
             UpdateLoggableEntries();

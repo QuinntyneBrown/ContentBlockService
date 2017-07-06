@@ -341,6 +341,30 @@
     <Content Include="src\app\headline-content-blocks\headline-content-block-paginated-list-embed.component.scss">
       <DependentUpon>headline-content-block-paginated-list-embed.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-edit-embed.component.css">
+      <DependentUpon>mega-header-content-block-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-edit-embed.component.html">
+      <DependentUpon>mega-header-content-block-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-item-embed.component.css">
+      <DependentUpon>mega-header-content-block-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-item-embed.component.html">
+      <DependentUpon>mega-header-content-block-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-master-detail.component.css">
+      <DependentUpon>mega-header-content-block-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-master-detail.component.html">
+      <DependentUpon>mega-header-content-block-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-paginated-list-embed.component.css">
+      <DependentUpon>mega-header-content-block-paginated-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\mega-header-content-blocks\mega-header-content-block-paginated-list-embed.component.html">
+      <DependentUpon>mega-header-content-block-paginated-list-embed.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\profiles\profile-edit-embed.component.html">
       <DependentUpon>profile-edit-embed.component.ts</DependentUpon>
     </Content>
@@ -744,6 +768,14 @@
     <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block.service.ts" />
     <TypeScriptCompile Include="src\app\headline-content-blocks\index.ts" />
     <TypeScriptCompile Include="src\app\headline-content-blocks\headline-content-block.model.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\mega-header-content-block-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\mega-header-content-block-paginated-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\mega-header-content-block-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\mega-header-content-block-master-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\mega-header-content-block.actions.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\mega-header-content-block.service.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\index.ts" />
+    <TypeScriptCompile Include="src\app\mega-header-content-blocks\mega-header-content-block.model.ts" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

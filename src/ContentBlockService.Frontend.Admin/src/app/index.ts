@@ -3,6 +3,7 @@ export * from "./call-to-action-content-blocks";
 export * from "./content-blocks";
 export * from "./digital-assets";
 export * from "./headline-content-blocks";
+export * from "./mega-header-content-blocks";
 export * from "./pagination";
 export * from "./profiles";
 export * from "./quintuple-content-blocks";
