@@ -17,6 +17,8 @@ export class AppRouterOutletComponent extends RouterOutlet {
 
             { path: "/call-to-action-content-blocks", name: "call-to-action-content-block-master-detail", authRequired: true },
 
+            { path: "/mega-header-content-blocks", name: "mega-header-content-block-master-detail", authRequired: true },
+
             { path: "/register", name: "account-register" },
             { path: "/login", name: "login" },
             { path: "/error", name: "error" },
