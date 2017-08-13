@@ -1,15 +1,8 @@
 using MediatR;
-using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ContentBlockService.Features.Core;
-using static ContentBlockService.Features.CallToActionContentBlocks.AddOrUpdateCallToActionContentBlockCommand;
-using static ContentBlockService.Features.CallToActionContentBlocks.GetCallToActionContentBlocksQuery;
-using static ContentBlockService.Features.CallToActionContentBlocks.GetCallToActionContentBlockByIdQuery;
-using static ContentBlockService.Features.CallToActionContentBlocks.RemoveCallToActionContentBlockCommand;
-using static ContentBlockService.Features.CallToActionContentBlocks.GetCallToActionContentBlockBySlugQuery;
 
 namespace ContentBlockService.Features.CallToActionContentBlocks
 {
@@ -24,8 +17,8 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
         [Route("add")]
         [HttpPost]
-        [ResponseType(typeof(AddOrUpdateCallToActionContentBlockResponse))]
-        public async Task<IHttpActionResult> Add(AddOrUpdateCallToActionContentBlockRequest request)
+        [ResponseType(typeof(AddOrUpdateCallToActionContentBlockCommand.Response))]
+        public async Task<IHttpActionResult> Add(AddOrUpdateCallToActionContentBlockCommand.Request request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));
@@ -33,8 +26,8 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
         [Route("update")]
         [HttpPut]
-        [ResponseType(typeof(AddOrUpdateCallToActionContentBlockResponse))]
-        public async Task<IHttpActionResult> Update(AddOrUpdateCallToActionContentBlockRequest request)
+        [ResponseType(typeof(AddOrUpdateCallToActionContentBlockCommand.Response))]
+        public async Task<IHttpActionResult> Update(AddOrUpdateCallToActionContentBlockCommand.Request request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));
@@ -43,10 +36,10 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
         [Route("get")]
         [AllowAnonymous]
         [HttpGet]
-        [ResponseType(typeof(GetCallToActionContentBlocksResponse))]
+        [ResponseType(typeof(GetCallToActionContentBlocksQuery.Response))]
         public async Task<IHttpActionResult> Get()
         {
-            var request = new GetCallToActionContentBlocksRequest();
+            var request = new GetCallToActionContentBlocksQuery.Request();
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));
         }
@@ -54,8 +47,8 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
         [Route("getById")]
         [HttpGet]
         [AllowAnonymous]
-        [ResponseType(typeof(GetCallToActionContentBlockByIdResponse))]
-        public async Task<IHttpActionResult> GetById([FromUri]GetCallToActionContentBlockByIdRequest request)
+        [ResponseType(typeof(GetCallToActionContentBlockByIdQuery.Response))]
+        public async Task<IHttpActionResult> GetById([FromUri] GetCallToActionContentBlockByIdQuery.Request request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));
@@ -64,8 +57,8 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
         [Route("getBySlug")]
         [HttpGet]
         [AllowAnonymous]
-        [ResponseType(typeof(GetCallToActionContentBlockBySlugResponse))]
-        public async Task<IHttpActionResult> GetBySlug([FromUri]GetCallToActionContentBlockBySlugRequest request)
+        [ResponseType(typeof(GetCallToActionContentBlockBySlugQuery.Response))]
+        public async Task<IHttpActionResult> GetBySlug([FromUri] GetCallToActionContentBlockBySlugQuery.Request request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));
@@ -73,8 +66,8 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
         [Route("remove")]
         [HttpDelete]
-        [ResponseType(typeof(RemoveCallToActionContentBlockResponse))]
-        public async Task<IHttpActionResult> Remove([FromUri]RemoveCallToActionContentBlockRequest request)
+        [ResponseType(typeof(RemoveCallToActionContentBlockCommand.Response))]
+        public async Task<IHttpActionResult> Remove([FromUri] RemoveCallToActionContentBlockCommand.Request request)
         {
             request.TenantUniqueId = Request.GetTenantUniqueId();
             return Ok(await _mediator.Send(request));

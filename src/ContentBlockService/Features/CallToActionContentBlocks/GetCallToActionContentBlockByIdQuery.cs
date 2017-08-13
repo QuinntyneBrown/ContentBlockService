@@ -1,37 +1,35 @@
-using MediatR;
 using ContentBlockService.Data;
 using ContentBlockService.Features.Core;
+using MediatR;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Data.Entity;
 
 namespace ContentBlockService.Features.CallToActionContentBlocks
 {
     public class GetCallToActionContentBlockByIdQuery
     {
-        public class GetCallToActionContentBlockByIdRequest : IRequest<GetCallToActionContentBlockByIdResponse> { 
+        public class Request : IRequest<Response> { 
             public int Id { get; set; }
             public Guid TenantUniqueId { get; set; }
         }
 
-        public class GetCallToActionContentBlockByIdResponse
+        public class Response
         {
             public CallToActionContentBlockApiModel CallToActionContentBlock { get; set; } 
         }
 
-        public class GetCallToActionContentBlockByIdHandler : IAsyncRequestHandler<GetCallToActionContentBlockByIdRequest, GetCallToActionContentBlockByIdResponse>
+        public class Handler : IAsyncRequestHandler<Request, Response>
         {
-            public GetCallToActionContentBlockByIdHandler(ContentBlockServiceContext context, ICache cache)
+            public Handler(ContentBlockServiceContext context, ICache cache)
             {
                 _context = context;
                 _cache = cache;
             }
 
-            public async Task<GetCallToActionContentBlockByIdResponse> Handle(GetCallToActionContentBlockByIdRequest request)
+            public async Task<Response> Handle(Request request)
             {                
-                return new GetCallToActionContentBlockByIdResponse()
+                return new Response()
                 {
                     CallToActionContentBlock = CallToActionContentBlockApiModel.FromCallToActionContentBlock(await _context.CallToActionContentBlocks
                     .Include(x => x.Tenant)				

@@ -1,6 +1,6 @@
-using MediatR;
 using ContentBlockService.Data;
 using ContentBlockService.Features.Core;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,31 +11,31 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 {
     public class GetCallToActionContentBlocksQuery
     {
-        public class GetCallToActionContentBlocksRequest : IRequest<GetCallToActionContentBlocksResponse> { 
+        public class Request : IRequest<Response> { 
             public Guid TenantUniqueId { get; set; }       
         }
 
-        public class GetCallToActionContentBlocksResponse
+        public class Response
         {
             public ICollection<CallToActionContentBlockApiModel> CallToActionContentBlocks { get; set; } = new HashSet<CallToActionContentBlockApiModel>();
         }
 
-        public class GetCallToActionContentBlocksHandler : IAsyncRequestHandler<GetCallToActionContentBlocksRequest, GetCallToActionContentBlocksResponse>
+        public class Handler : IAsyncRequestHandler<Request, Response>
         {
-            public GetCallToActionContentBlocksHandler(ContentBlockServiceContext context, ICache cache)
+            public Handler(ContentBlockServiceContext context, ICache cache)
             {
                 _context = context;
                 _cache = cache;
             }
 
-            public async Task<GetCallToActionContentBlocksResponse> Handle(GetCallToActionContentBlocksRequest request)
+            public async Task<Response> Handle(Request request)
             {
                 var callToActionContentBlocks = await _context.CallToActionContentBlocks
                     .Include(x => x.Tenant)
                     .Where(x => x.Tenant.UniqueId == request.TenantUniqueId )
                     .ToListAsync();
 
-                return new GetCallToActionContentBlocksResponse()
+                return new Response()
                 {
                     CallToActionContentBlocks = callToActionContentBlocks.Select(x => CallToActionContentBlockApiModel.FromCallToActionContentBlock(x)).ToList()
                 };

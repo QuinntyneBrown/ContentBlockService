@@ -1,34 +1,32 @@
-using MediatR;
 using ContentBlockService.Data;
 using ContentBlockService.Data.Model;
 using ContentBlockService.Features.Core;
+using MediatR;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Data.Entity;
 
 namespace ContentBlockService.Features.CallToActionContentBlocks
 {
     public class AddOrUpdateCallToActionContentBlockCommand
     {
-        public class AddOrUpdateCallToActionContentBlockRequest : IRequest<AddOrUpdateCallToActionContentBlockResponse>
+        public class Request : IRequest<Response>
         {
             public CallToActionContentBlockApiModel CallToActionContentBlock { get; set; }
             public Guid TenantUniqueId { get; set; }
         }
 
-        public class AddOrUpdateCallToActionContentBlockResponse { }
+        public class Response { }
 
-        public class AddOrUpdateCallToActionContentBlockHandler : IAsyncRequestHandler<AddOrUpdateCallToActionContentBlockRequest, AddOrUpdateCallToActionContentBlockResponse>
+        public class Handler : IAsyncRequestHandler<Request, Response>
         {
-            public AddOrUpdateCallToActionContentBlockHandler(ContentBlockServiceContext context, ICache cache)
+            public Handler(ContentBlockServiceContext context, ICache cache)
             {
                 _context = context;
                 _cache = cache;
             }
 
-            public async Task<AddOrUpdateCallToActionContentBlockResponse> Handle(AddOrUpdateCallToActionContentBlockRequest request)
+            public async Task<Response> Handle(Request request)
             {
                 var entity = await _context.CallToActionContentBlocks
                     .Include(x => x.Tenant)
@@ -55,7 +53,7 @@ namespace ContentBlockService.Features.CallToActionContentBlocks
 
                 await _context.SaveChangesAsync();
 
-                return new AddOrUpdateCallToActionContentBlockResponse();
+                return new Response();
             }
 
             private readonly ContentBlockServiceContext _context;
